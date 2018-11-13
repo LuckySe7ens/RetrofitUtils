@@ -1,14 +1,5 @@
-* 欢迎关注微信公众号,长期推荐技术文章和技术视频
 
-* 微信公众号名称：Android干货程序员
-
-![](http://upload-images.jianshu.io/upload_images/4037105-8f737b5104dd0b5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-PS：如果觉得文章太长，你也可观看该课程的[视频教程](https://v.qq.com/x/page/w0355urm511.html)，亲，里面还有高清，无码的福利喔
->写在前面: 
-Retrofit与okhttp共同出自于Square公司，是目前市场上使用最多的联网框架,retrofit是对okhttp做了一层封装,不过封装之后的retrofit上手还是极其复杂,为了解决使用难度问题,本文推荐使用github开源项目RetrofitUtils.
-
-* RetrofitUtils开源项目地址：https://github.com/open-android/RetrofitUtils 
+[![](https://jitpack.io/v/LuckySe7ens/RetrofitUtils.svg)](https://jitpack.io/#LuckySe7ens/RetrofitUtils)
 
 * 定义我们请求的Api，我们假设是这样的:
  
