@@ -35,6 +35,7 @@ import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.PartMap;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
@@ -364,6 +365,19 @@ public final class HttpHelper {
         return false;
     }
 
+    public static <T> Call putAsync(String apiUrl, Map<String, Object> headers, Map<String, Object> paramMap, HttpResponseListener<T> httpResponseListener) {
+        if (paramMap == null) {
+            paramMap = new HashMap<>();
+        }
+        if (headers == null) {
+            headers = new HashMap<>();
+        }
+        HttpService httpService = getInstance().mRetrofit.create(HttpService.class);
+        Call<ResponseBody> call = httpService.put(apiUrl, headers, paramMap);
+        parseNetData(call, httpResponseListener);
+        return call;
+    }
+
 
     public static interface HttpService<T> {
         @GET
@@ -372,6 +386,10 @@ public final class HttpHelper {
         @FormUrlEncoded
         @POST
         Call<ResponseBody> post(@Url String url, @HeaderMap Map<String, String> headers, @FieldMap Map<String, Object> param);
+
+        @FormUrlEncoded
+        @PUT
+        Call<ResponseBody> put(@Url String url, @HeaderMap Map<String, String> headers, @FieldMap Map<String, Object> param);
 
         @Multipart
         @POST
