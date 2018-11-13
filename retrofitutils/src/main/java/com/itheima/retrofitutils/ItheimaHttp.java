@@ -1,6 +1,5 @@
 package com.itheima.retrofitutils;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.itheima.retrofitutils.listener.HttpResponseListener;
@@ -51,11 +50,18 @@ public class ItheimaHttp {
                     , request.getHeaderMap()
                     , request.getParamsMap()
                     , httpResponseListener);
-        } else {
+        } else if(RequestMethod.POST.equals(request.getRequestMethod())) {
             return HttpHelper.postAsync(request.getApiUlr()
                     , request.getHeaderMap()
                     , request.getParamsMap()
                     , httpResponseListener);
+        } else if(RequestMethod.PUT.equals(request.getRequestMethod())) {
+            return HttpHelper.putAsync(request.getApiUlr()
+                    , request.getHeaderMap()
+                    , request.getParamsMap()
+                    , httpResponseListener);
+        } else {
+            return null;
         }
     }
 
@@ -77,6 +83,14 @@ public class ItheimaHttp {
      */
     public static Request newPostRequest(String apiUlr) {
         return new Request(apiUlr, RequestMethod.POST);
+    }
+
+    /**
+     * @param apiUlr 格式：xxxx/xxxxx
+     * @return
+     */
+    public static Request newPutRequest(String apiUlr) {
+        return new Request(apiUlr, RequestMethod.PUT);
     }
 
     /**
