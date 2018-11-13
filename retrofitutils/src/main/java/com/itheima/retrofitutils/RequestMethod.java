@@ -2,7 +2,8 @@ package com.itheima.retrofitutils;
 
 public enum RequestMethod {
     GET("GET"),
-
+    PUT("PUT"),
+    DELETE("DELETE"),
     POST("POST");
     private final String value;
 
