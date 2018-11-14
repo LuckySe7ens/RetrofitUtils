@@ -40,7 +40,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.PartMap;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
-
+import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by lyl on 2016/10/3.
  */
@@ -86,7 +86,7 @@ public final class HttpHelper {
                 .baseUrl(sBaseUrl)
                 .client(okHttpClient)
                 .addConverterFactory(StringConverterFactory.create())
-                //.addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
     }
