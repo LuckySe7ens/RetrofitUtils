@@ -29,12 +29,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.http.Body;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.Multipart;
-import retrofit2.http.Body;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.PartMap;
@@ -366,9 +366,9 @@ public final class HttpHelper {
         return false;
     }
 
-    public static <T> Call putAsync(String apiUrl, Map<String, Object> headers, Map<String, Object> paramMap, HttpResponseListener<T> httpResponseListener) {
+    public static <T> Call putAsync(String apiUrl, Map<String, Object> headers, GitUpdateFile paramMap, HttpResponseListener<T> httpResponseListener) {
         if (paramMap == null) {
-            paramMap = new HashMap<>();
+            paramMap = new GitUpdateFile();
         }
         if (headers == null) {
             headers = new HashMap<>();
@@ -389,7 +389,7 @@ public final class HttpHelper {
         Call<ResponseBody> post(@Url String url, @HeaderMap Map<String, String> headers, @FieldMap Map<String, Object> param);
 
         @PUT
-        Call<ResponseBody> put(@Url String url, @HeaderMap Map<String, String> headers, @Body Map<String, Object> param);
+        Call<ResponseBody> put(@Url String url, @HeaderMap Map<String, String> headers, @Body GitUpdateFile param);
 
         @Multipart
         @POST
