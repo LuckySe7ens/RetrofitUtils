@@ -34,6 +34,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.Multipart;
+import retrofit2.http.Body;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.PartMap;
@@ -387,9 +388,8 @@ public final class HttpHelper {
         @POST
         Call<ResponseBody> post(@Url String url, @HeaderMap Map<String, String> headers, @FieldMap Map<String, Object> param);
 
-        @FormUrlEncoded
         @PUT
-        Call<ResponseBody> put(@Url String url, @HeaderMap Map<String, String> headers, @FieldMap Map<String, Object> param);
+        Call<ResponseBody> put(@Url String url, @HeaderMap Map<String, String> headers, @Body Map<String, Object> param);
 
         @Multipart
         @POST
