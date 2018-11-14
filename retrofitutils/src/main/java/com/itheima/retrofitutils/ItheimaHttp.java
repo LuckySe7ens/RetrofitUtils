@@ -58,7 +58,7 @@ public class ItheimaHttp {
         } else if(RequestMethod.PUT.equals(request.getRequestMethod())) {
             return HttpHelper.putAsync(request.getApiUlr()
                     , request.getHeaderMap()
-                    , request.getParamsMap()
+                    , new GitUpdateFile(request.getParamsMap().get("sha").toString(),request.getParamsMap().get("message").toString(),request.getParamsMap().get("content").toString())
                     , httpResponseListener);
         } else {
             return null;
